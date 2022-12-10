@@ -1,0 +1,103 @@
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+    <div class="background">
+        <div class="inlay"></div>
+        <div class="inlay"></div>
+        <div class="inlay"></div>
+        <div class="inlay"></div>
+        <div class="inlay"></div>
+        <div class="inlay"></div>
+        <div id="fret-wires"></div>
+        <div class="nut"></div>
+        <div id="string-container"></div>
+        <div id="fretboard">
+            <div class="strings" data-open-note="E" data-string-number="1"></div>
+            <div class="strings" data-open-note="B" data-string-number="2"></div>
+            <div class="strings" data-open-note="G" data-string-number="3"></div>
+            <div class="strings" data-open-note="D" data-string-number="4"></div>
+            <div class="strings" data-open-note="A" data-string-number="5"></div>
+            <div class="strings" data-open-note="E" data-string-number="6"></div>
+        </div>
+    </div>
+    
+ 
+    
+    <br />
+    <!-- <br /> -->
+    <br />
+    <label for="chord-map-flag">
+    <input type="checkbox" name="chord-map" id="chord-map-flag" />
+    Chord Mapper <span class="info">&#x24D8;</label>
+    
+    <label for="display-label-flag">
+    <input type="checkbox" id="display-label-flag" checked />
+    Show Labels</label>
+    
+    <label for="display-notes-flag">
+    <input type="checkbox" id="display-notes-flag" name="display-notes" />
+    Show Note Names</label>
+    <button id="clear-button">Clear</button>
+    
+    <div class="options-container">
+        <div class="option-panel" >
+            <div id="tuningSelector">
+                <h3>Select Tuning</h3>
+                <select multiple size="9" name="tunings" id="tunings">
+                    <option value="Standard" id="tunings-1" selected>Standard</option>
+                    <option value="DropD" id="tunings-2">Drop-D</option>
+                    <option value="DADGAD" id="tunings-3">DADGAD</option>
+                    <option value="OpenD" id="tunings-4">Open-D</option>
+                    <option value="HalfStepDown" id="tunings-5">Half Step Down</option>
+                    <option value="WholeStepDown" id="tunings-6">Whole Step Down</option>
+                </select>   
+                <button id="apply-tuning-button">OK</button>
+            </div>
+        </div>
+        <div class="option-panel">
+            <div id="scaleSelector">
+                <h3>Select Scale</h4>
+                <div>
+                <select name="root-note" id="scale-root">
+                    <option value="0" selected>C</option>
+                    <option value="1">C#</option>
+                    <option value="2">D</option>
+                    <option value="3">D#</option>
+                    <option value="4">E</option>
+                    <option value="5">F</option>
+                    <option value="6">F#</option>
+                    <option value="7">G</option>
+                    <option value="8">G#</option>
+                    <option value="9">A</option>
+                    <option value="10">A#</option>
+                    <option value="11">B</option>
+                </select>
+                </div>
+                <select multiple size="7" name="scales" id="scales">
+                    <option value="PentatonicMinor" id="scale-1" selected>Pentatonic Min</option>
+                    <option value="PentatonicMajor" id="scale-2" >Pentatonic Maj</option>
+                    <option value="Ionian"     id="scale-3" >Ionian</option>
+                    <option value="Dorian"     id="scale-4">Dorian    </option>
+                    <option value="Phrygian"   id="scale-5">Phrygian  </option>
+                    <option value="Lydian"     id="scale-6">Lydian    </option>
+                    <option value="Mixolydian" id="scale-7">Mixolydian</option>
+                    <option value="Aeolian"    id="scale-8">Aeolian   </option>
+                    <option value="Locrian"    id="scale-9">Locrian </option>
+                </select>
+                <button id="apply-scale-button">OK</button>
+            </div>
+        </div>
+        <p id="display-mapped-notes"></p>
+    </div>
+    
+    
+    
+    <script src="ZealBoard.js" type="module"></script>
+</body>
+
+
+</html> 

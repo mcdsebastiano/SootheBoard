@@ -1,0 +1,235 @@
+:root {
+    --width: 1450px;
+    --height: 242px;
+    --marker-size: 32px;
+    --zero-fret-size: 38px;
+}
+
+* {
+    font-family: verdana;
+}
+
+label {
+    border: 1px solid black; 
+    border-radius: 5px; 
+    padding: 0.3rem;
+    padding-right: 1rem;
+}
+
+select {
+    padding: 0.3rem;
+}
+
+
+button {
+    display: inline-block;
+    outline: 0;
+    text-align: center;
+    cursor: pointer;
+    padding: 0px 16px;
+    border-radius: 2px;
+    min-width: 80px;
+    height: 32px;
+    background-color: rgb(0, 120, 212);
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 400;
+    box-sizing: border-box;
+    border: 1px solid rgb(0, 120, 212);
+    
+}
+button:hover {
+    background-color: rgb(16, 110, 190);
+    border: 1px solid rgb(16, 110, 190);
+}
+
+.options-container {
+    display: flex;
+    flex-direction: columns;
+    gap: 1rem;
+}
+.option-panel {
+    text-align: center;
+    border: 1px solid black; 
+    width: 160px; 
+    padding: 1rem; 
+    margin-top: 1rem;
+}
+.option-panel>div>* {
+    margin: 0.3rem;
+}
+
+.info {
+    font-family: verdana; color: grey; font-size: 18px;
+}
+
+.info:hover {
+    color: black;
+}
+
+.nut {
+    width: var(--zero-fret-size);
+    height: var(--height);
+    background-color: beige;
+    position: absolute;
+}
+
+.inlay {
+    border-radius: 50%;
+    background-color: white;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 112px;
+}
+
+.inlay:nth-child(1) {
+    left: 290px;
+}
+
+.inlay:nth-child(2) {
+    left: 497px;;
+}
+
+.inlay:nth-child(3) {
+    left: 704px;;
+}
+
+.inlay:nth-child(4) {
+    left: 912px;;
+}
+
+.inlay:nth-child(5) {
+    top: 32px;
+    left: 1222px;
+}
+
+.inlay:nth-child(6) {
+    top: 194px;
+    left: 1222px;
+}
+
+#fretboard {
+    border: 1px solid black;
+    font-size: 12px;
+    position: absolute;
+    height: var(--height);
+
+    width: var(--width);
+}
+
+.strings {
+    height:40px;
+}
+
+.clickable {
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    width: calc(var(--width) / 14) ;
+    vertical-align: top;
+    height: 60px;
+    z-index: 9999;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clickable:hover {
+    height: 60px;
+    top: -6px;
+    background: radial-gradient( rgba(255,232,198,0.2) 1px,transparent 50px);
+}
+
+.zeroth {
+    width: var(--zero-fret-size) !important;
+    height: 42px !important;
+}
+
+.clickable.zeroth:hover {
+    background: none;
+}
+
+#fret-wires {
+    top: 8px;
+    position: absolute;
+    left: 45px;
+}
+
+.fret-wire-container {
+    width: calc(var(--width) / 14);
+    display: inline-block;
+}
+
+.fret-wire {
+    overflow: hidden;
+    position: absolute;
+    background-color: #BaBaBa;
+    border-right: 2px solid #434343;
+    display: inline-block;
+    width: 3px;
+    height: 242px;
+}
+
+.background {
+    background-color: #0C0C0D;
+    width: var(--width);
+    height: var(--height);
+}
+
+#string-container {
+    width: var(--width);
+    top: -10px;
+    position: absolute;
+}
+
+.string {
+    position: relative;
+    margin-top: 38px;
+    width: 100%;
+    background-color: #A6A6A6;
+    border-bottom: 1px solid rgba(0,0,0,0.6);
+}
+
+.string:nth-child(1) {
+    border-top: 1px solid rgba(166,166,166,0.5);
+}
+.string:nth-child(2) {
+    height:1px;
+}
+.string:nth-child(3) {
+    height:1px;
+}
+.string:nth-child(4) {
+    height:2px;
+}
+.string:nth-child(5) {
+    height:2px;
+}
+.string:nth-child(6) {
+    height:3px;
+}
+
+.marker {
+    letter-spacing:1px;
+    margin-top: 1px;
+    position: relative;
+    z-index: 10000;
+    color: #FFFFFF;
+    font-size: 16pt;
+    text-shadow: 0.5px 0.5px 1px #000000;
+    box-shadow: 1px 1px black;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: #E98E07;
+    font-family: verdana;
+    line-height: var(--marker-size);
+    width      : var(--marker-size);
+    height     : var(--marker-size);
+}
+
+.marker::before {
+    content: attr(data-fret);
+}
