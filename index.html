@@ -12,8 +12,8 @@
         <div class="inlay"></div>
         <div class="inlay"></div>
         <div class="inlay"></div>
-        <div id="fret-wires"></div>
         <div class="nut"></div>
+        <div id="fret-wires"></div>
         <div id="string-container"></div>
         <div id="fretboard">
             <div class="strings" data-open-note="E" data-string-number="1"></div>
@@ -28,8 +28,25 @@
  
     
     <br />
-    <!-- <br /> -->
     <br />
+    
+    <div class="range_container">
+        <div class="sliders_control">
+            <input id="fromSlider" type="range" value="0" min="0" max="100"/>
+            <input id="toSlider" type="range" value="0" min="0" max="100"/>
+        </div>
+        <div class="form_control">
+            <div class="form_control_container">
+                <div class="form_control_container__time">Min</div>
+                <input class="form_control_container__time__input" type="number" id="fromInput" value="0" min="0" max="13"/>
+            </div>
+            <div class="form_control_container">
+                <div class="form_control_container__time">Max</div>
+                <input class="form_control_container__time__input" type="number" id="toInput" value="0" min="0" max="13"/>
+            </div>
+        </div>
+    </div>
+    
     <label for="chord-map-flag">
     <input type="checkbox" name="chord-map" id="chord-map-flag" />
     Chord Mapper <span class="info">&#x24D8;</label>
@@ -97,6 +114,7 @@
     
     
     <script src="ZealBoard.js" type="module"></script>
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
 
 
