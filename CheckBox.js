@@ -1,4 +1,4 @@
-export class CheckBox {
+export default class CheckBox {
     constructor(idName) {
         this.checkbox = document.getElementById(idName);
         this.eventType = new Event("change");

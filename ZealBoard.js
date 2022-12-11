@@ -1,7 +1,6 @@
-import {
-    CheckBox
-}
-from "./CheckBox.js";
+import CheckBox from "./CheckBox.js";
+import RangeSlider from "./RangeSlider.js";
+
 
 import {
     notes,
@@ -48,6 +47,7 @@ export class ZealBoard {
                 applyScale: document.getElementById("apply-scale-button")
             },
             selectors: {
+                range: new RangeSlider(),
                 tuning: document.getElementById("tunings"),
                 scales: document.getElementById("scales"),
                 scaleRoot: document.getElementById("scale-root"),
@@ -61,7 +61,7 @@ export class ZealBoard {
 
             selectTuning: () => this.setOpenStrings(this.tuning[this.controls.selectors.tuning.selectedIndex]),
 
-            selectScale: () => {
+            selectScale: (low, high) => {
                 if (this.controls.flags.chordMapper.checked)
                     this.controls.flags.chordMapper.checked = false;
 
@@ -73,12 +73,12 @@ export class ZealBoard {
                 let scaleName = this.controls.selectors.scales.options[this.controls.selectors.scales.selectedIndex].value;
 
                 for (let i = 0; i < this.strings.length; i++) {
-                    for (let k = 0; k < this.strings[i].children.length; k++) {
+                    for (let k = 0; k <this.controls.selectors.range.high; k++) {
 
                         let start = parseInt(this.controls.selectors.scaleRoot.options[this.controls.selectors.scaleRoot.selectedIndex].value);
                         let scaleNote = notes[(start + scaleIntervals[scaleName][k % 8]) % 12];
 
-                        for (let j = 0; j < this.strings[i].children.length; j++) {
+                        for (let j = this.controls.selectors.range.low; j < this.controls.selectors.range.high; j++) {
                             let container = this.strings[i].children[j];
 
                             if (container.children[0].dataset.fret === scaleNote) {
@@ -127,7 +127,7 @@ export class ZealBoard {
 
     construct() {
         for (let i = 0; i < 6; i++) {
-            for (let j = 0; j <= 13; j++) {
+            for (let j = 0; j < 14; j++) {
                 let fretContainer = newDiv();
                 fretContainer.classList.add("clickable");
 

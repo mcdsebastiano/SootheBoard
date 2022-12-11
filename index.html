@@ -30,20 +30,10 @@
     <br />
     <br />
     
-    <div class="range_container">
-        <div class="sliders_control">
-            <input id="fromSlider" type="range" value="0" min="0" max="100"/>
-            <input id="toSlider" type="range" value="0" min="0" max="100"/>
-        </div>
-        <div class="form_control">
-            <div class="form_control_container">
-                <div class="form_control_container__time">Min</div>
-                <input class="form_control_container__time__input" type="number" id="fromInput" value="0" min="0" max="13"/>
-            </div>
-            <div class="form_control_container">
-                <div class="form_control_container__time">Max</div>
-                <input class="form_control_container__time__input" type="number" id="toInput" value="0" min="0" max="13"/>
-            </div>
+    <div class="range-slider">
+        <div class="sliders-control">
+            <input id="from-slider" type="range" value="0"/>
+            <input id="to-slider" type="range" value="100"/>
         </div>
     </div>
     
@@ -114,7 +104,6 @@
     
     
     <script src="ZealBoard.js" type="module"></script>
-    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
 
 
