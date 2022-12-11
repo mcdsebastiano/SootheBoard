@@ -1,7 +1,6 @@
 import CheckBox from "./CheckBox.js";
 import RangeSlider from "./RangeSlider.js";
 
-
 import {
     notes,
     Major,
@@ -11,6 +10,8 @@ import {
 from "./NoteSets.js";
 
 const newDiv = () => document.createElement("div");
+
+const NUM_FRETS = 14;
 
 export class ZealBoard {
     constructor() {
@@ -126,7 +127,7 @@ export class ZealBoard {
 
     construct() {
         for (let i = 0; i < 6; i++) {
-            for (let j = 0; j < 14; j++) {
+            for (let j = 0; j < NUM_FRETS; j++) {
                 let fretContainer = newDiv();
                 fretContainer.classList.add("clickable");
 
@@ -145,7 +146,7 @@ export class ZealBoard {
     }
 
     attachStringsAndFrets() {
-        for (let i = 0; i < 14; i++) {
+        for (let i = 0; i < NUM_FRETS; i++) {
             let container = newDiv();
             container.classList.add("fret-wire-container");
 
@@ -209,31 +210,22 @@ export class ZealBoard {
         let allFrets = document.getElementsByClassName("fret");
         if (this.controls.flags.displayNotes.checked === false) {
             for (let i = 0; i < allFrets.length; i++) {
-                allFrets[i].setAttribute("data-fret", (i % 14));
+                allFrets[i].setAttribute("data-fret", (i % NUM_FRETS));
             }
 
         } else {
             for (let i = 0; i < 6; i++) {
                 let rootIdx;
-                if (this.startingCode[i].length === 1) {
-                    rootIdx = notes.findIndex(a => a.charCodeAt(0) === this.startingCode[i].charCode);
-                } else {
-                    for (let j = 0; j < notes.length; j++) {
-                        let note = this.createCodeFromNote(notes[j]);
-
-                        if (note.length == 1)
-                            continue;
-
-                        if (note.charCode === this.startingCode[i].charCode) {
-                            rootIdx = j;
-                        }
-
-                    }
+                // TODO: the note charCodes can be cached!
+                for (let j = 0; j < notes.length; j++) {
+                    let note = this.createCodeFromNote(notes[j]);
+                    if (note.charCode === this.startingCode[i].charCode) 
+                        rootIdx = j;
                 }
 
-                for (let j = 0; j < 14; j++) {
+                for (let j = 0; j < NUM_FRETS; j++) {
                     let label = notes[(rootIdx + j) % 12];
-                    allFrets[i * 14 + j].setAttribute("data-fret", label);
+                    allFrets[i * NUM_FRETS + j].setAttribute("data-fret", label);
                 }
             }
 

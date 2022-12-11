@@ -1,25 +1,34 @@
 :root {
+    --num-frets: 14;
     --width: 1450px;
     --height: 242px;
     --marker-size: 32px;
-    --zero-fret-size: 38px;
+    --zero-fret-size: 39px;
 }
 
 * {
     font-family: verdana;
 }
 
+body {
+    background-color: #408080;
+}
+
 label {
+    margin-right: 1rem;
+    background-color: white;
     border: 1px solid black; 
-    border-radius: 5px; 
-    padding: 0.3rem;
+    border-radius: 0.25rem;
+    padding: 0.4rem;
+    line-height: 2rem;
     padding-right: 1rem;
+    box-shadow: 1px 5px 20px rgba(0,0,0,0.2);
 }
 
 select {
+    background: none;
     padding: 0.3rem;
 }
-
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     pointer-events: all;
@@ -53,25 +62,30 @@ input[type="range"] {
 }
 
 button {
+    box-shadow: 1px 5px 10px rgba(0,0,0,0.2);
+    border-radius: 0.25rem;
     display: inline-block;
     outline: 0;
     text-align: center;
     cursor: pointer;
     padding: 0px 16px;
-    border-radius: 2px;
     min-width: 80px;
-    height: 32px;
+    height: 35px;
     background-color: rgb(0, 120, 212);
     color: rgb(255, 255, 255);
     font-size: 14px;
     font-weight: 400;
     box-sizing: border-box;
-    border: 1px solid rgb(0, 120, 212);
+    border: 1px solid #00508A;
     
 }
 button:hover {
     background-color: rgb(16, 110, 190);
-    border: 1px solid rgb(16, 110, 190);
+    border: 1px solid #00508A;
+}
+
+.background {
+    box-shadow: 7px 9px 20px rgba(0,0,0,0.6);
 }
 
 .options-container {
@@ -80,6 +94,9 @@ button:hover {
     gap: 1rem;
 }
 .option-panel {
+    box-shadow: 1px 5px 20px rgba(0,0,0,0.2);
+    border-radius: 0.25rem;
+    background-color: white;
     text-align: center;
     border: 1px solid black; 
     width: 160px; 
@@ -101,7 +118,7 @@ button:hover {
 .nut {
     width: var(--zero-fret-size);
     height: var(--height);
-    background-color: beige;
+    background-color: #FFFFF0;
     position: absolute;
 }
 
@@ -142,7 +159,9 @@ button:hover {
 }
 
 #fretboard {
-    border: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
     font-size: 12px;
     position: absolute;
     height: var(--height);
@@ -159,7 +178,7 @@ button:hover {
     text-align: center;
     position: relative;
     display: inline-block;
-    width: calc(var(--width) / 14) ;
+    width: calc(var(--width) / var(--num-frets)) ;
     vertical-align: top;
     height: 60px;
     z-index: 9999;
@@ -190,7 +209,7 @@ button:hover {
 }
 
 .fret-wire-container {
-    width: calc(var(--width) / 14);
+    width: calc(var(--width) /  var(--num-frets));
     display: inline-block;
 }
 
@@ -201,7 +220,7 @@ button:hover {
     border-right: 2px solid #434343;
     display: inline-block;
     width: 3px;
-    height: 242px;
+    height: var(--height);
 }
 
 .background {
@@ -217,21 +236,21 @@ button:hover {
 }
 
 .string {
+    box-shadow:0px 1px 0px rgba(0,0,0,0.5), -1px -1px 0px rgba(0,0,0,0.7);
     position: relative;
     margin-top: 38px;
     width: 100%;
     background-color: #A6A6A6;
-    border-bottom: 1px solid rgba(0,0,0,0.6);
+    border-bottom: 1px solid rgba(0,0,0,0.4);
 }
 
 .string:nth-child(1) {
-    border-top: 1px solid rgba(166,166,166,0.5);
 }
 .string:nth-child(2) {
-    height:1px;
+    height: 1px;
 }
 .string:nth-child(3) {
-    height:1px;
+    height:2px;
 }
 .string:nth-child(4) {
     height:2px;
