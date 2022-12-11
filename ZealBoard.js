@@ -74,7 +74,6 @@ export class ZealBoard {
 
                 for (let i = 0; i < this.strings.length; i++) {
                     for (let k = 0; k < notes.length; k++) {
-
                         let start = parseInt(this.controls.selectors.scaleRoot.options[this.controls.selectors.scaleRoot.selectedIndex].value);
                         let scaleNote = notes[(start + scaleIntervals[scaleName][k % 8]) % 12];
 
